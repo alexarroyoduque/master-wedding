@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <!-- Register service worker if supported. -->
+  <!--
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  </script>
+  -->
+
+  <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+  <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+  
+
+  <!-- Load polyfills -->
+  <script 
+    src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"
+    defer>
+  </script> 
+
+  <!-- Load components via WebComponents.waitFor -->
+  <script type="module">
+    window.WebComponents = window.WebComponents || { 
+      waitFor(cb){ addEventListener('WebComponentsReady', cb) }
+    } 
+    WebComponents.waitFor(async () => { 
+      import('./src/wedding-main.js');
+    });
+  </script>
+  
+  <!-- Change stuff here for your app -->
+  <meta name="description" content="boda de Irene & Alex">
+  <meta name="theme-color" content="#ffffff">
+  <title>Boda de Irene & Alex</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="shortcut icon" href="/manifest/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Catamaran:900|Montserrat&display=swap');
+  body {
+    background-color: #eee;
+    margin: 0 auto;
+  }
+</style>
+<body>
+
+  <!-- 
+    To configure starting state of the checkbox from markup: 
+    <start-lit-element pie="true"> 
+  -->
+  
+  <wedding-main>
+    <!-- Placeholders to improve time to first paint -->
+    <h1>Cargando...</h1>
+
+    <!-- Check for JavaScript -->
+    <p id="jsyes"></p>
+    <script type="text/javascript">
+      document.getElementById('jsyes').innerHTML='Loading...';
+    </script>
+    <noscript>
+      Could not render the custom element. Check that JavaScript is enabled.
+    </noscript>
+  </wedding-main>
+</body>

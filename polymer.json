@@ -1,0 +1,25 @@
+{
+  "shell": "src/wedding-main.js",
+  "entrypoint": "index.html",
+  "fragments": [],
+  "npm": true,
+  "moduleResolution": "node",
+  "sources": ["src/wedding-main.js", "src/images/**", "manifest/**", "manifest.json", "package.json"],
+  "extraDependencies": [
+    "robots.txt",
+    "node_modules/@webcomponents/webcomponentsjs/**"
+  ],
+  "builds": [{
+    "bundle": true,
+    "js": { 
+      "minify": true,
+      "compile": "es5",
+      "transformModulesToAmd": true
+    },
+    "html": {
+      "minify": true
+    },
+    "addServiceWorker": false,
+    "addPushManifest": true
+  }]
+}

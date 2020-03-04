@@ -1,0 +1,16 @@
+{
+  "name": "boda-irene-alex",
+  "version": "1.0.0",
+  "description": "Project to learn lit-html with wedding author info.",
+  "repository": "https://github.com/alexarroyoduque/boda-irene-alex",
+  "main": "wedding-main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejandro Arroyo Duque",
+  "license": "licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "latest",
+    "lit-element": "latest"
+  }
+}
