@@ -19,59 +19,52 @@ export class WeddingTitle extends LitElement {
     return css`
       div {
         padding: 1rem;
-        background: url("https://i.pinimg.com/originals/00/77/d4/0077d404a87d41730afbe47a6a988441.jpg");
-        background-position-x: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 70vh;
-        animation-duration: 2s;
-        animation-direction: alternate;
-        animation-fill-mode: forwards;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease;
-
         text-align: center;
-
         font-size: 2rem;
         line-height: 4rem;
-        color: white;
-        text-shadow: 0px 0px .5rem #c5a600;     
-        
         position: relative;
       }
 
-      
-      @keyframes grayanimation {
-        0% {
-          -webkit-filter: grayscale(10%);
-          filter: grayscale(10%);
-        }
-        25% {
-          -webkit-filter: grayscale(20%);
-          filter: grayscale(20%);
-        }
-        50% {
-          -webkit-filter: grayscale(30%);
-          filter: grayscale(30%);
-        }
-        75% {
-          -webkit-filter: grayscale(40%);
-          filter: grayscale(40%);
+      div::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: url("./src/images/welcome.jpg");
+        filter: grayscale(100%);
+        background-position-x: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+      }
+
+      @media screen and (min-width: 700px) {
+        div::before {
+          background-position-y: -4rem; 
         }
       }
 
       h1 {
         font-weight: normal;
         font-size: 3.4rem;
+        margin: 1rem 0;
       }
 
       .subtitle {
-        font-size: 2rem;
-        line-height: 3rem;
+        padding-top: 12rem;
+        font-size: 1.9rem;
+        line-height: 2rem;
+      }
+
+      h1, .subtitle {
+        color: white;
+        opacity: .9;
+        text-shadow: 0px 0px 4px #c5a600;     
       }
 
       .extra {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
       }
     `;
   }

@@ -17,7 +17,9 @@ export class WeddingMain extends LitElement {
       message: { type: String },
       infoItems: {type: Array},
       knowMoreSections: {type: Array},
-      storySections: {type: Array}
+      storySections: {type: Array},
+      isMenuVisible: {type: Boolean},
+      buttonCloseClass: {type: String}
     };
   }
 
@@ -29,18 +31,19 @@ export class WeddingMain extends LitElement {
 
   constructor() {
     super();
-    this.message = 'wedding-main';
+    this.isMenuVisible = false;
+    this.buttonCloseClass = '';
     this.infoItems = [
       {
         title: '¿Dónde?',
         image: './src/images/radar.png',
-        description: 'La Quinta de Illescas'
+        description: 'En la Quinta de Illescas'
       },
       {
-        title: '24 octubre 2020',
+        title: '¿Hora?',
         // image: './src/images/clock.png',
         image: './src/images/fullmetal.png',
-        description: `Faltan ${this._getDaysToWedding()} días`
+        description: `A las 12:30 AM`
       }
     ];
     this.storySections = [
@@ -188,9 +191,8 @@ export class WeddingMain extends LitElement {
         display: block;
         box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.4);
         font-family: var(--theme-title-font-family);
-        max-width: 1024px;
         margin: 0 auto;
-
+        max-width: 1024px;
       }
 
       .content {
@@ -258,31 +260,124 @@ export class WeddingMain extends LitElement {
         top: 0;
         width: 100%;
         height: 100%;
-        opacity: 0.1;
+        opacity: 0.08;
         background-repeat: no-repeat;
         background-size: cover;
         z-index: -91;
       }
 
-      .knowmore:after {
+      #knowmore:after {
         background-image: url('./src/images/moguri.png');
       }
 
-      .secret:after {
+      #secret:after {
         background-image: url('./src/images/box.png');
       }
 
-      .story:after {
+      #story:after {
         background-image: url('./src/images/ffx.png');
+      }
+
+      .menu {
+        position: fixed;
+        top: 0;
+        background-color: rgba(33, 33, 33, 0.9);
+        color: var(--theme-color-light);
+        z-index: 999;
+        right: 0;
+        font-family: var(--theme-primary-font-family);
+        font-size: 1rem;
+      }
+
+      .menu-opened {
+        padding-top: 4rem;
+        text-align: center;
+      }
+
+      .menu.close {
+        width: 100%;
+        height: 100vh;
+      }
+
+      .menu a {
+        display: block;
+        padding: .8rem 0;
+        width: 100%;
+        text-decoration: none;
+        color: var(--theme-color-light);
+      }
+
+      #menu-access {
+        border: 0;
+        outline: none;
+        background-color: transparent;
+        right: 0;
+        position: absolute;
+      }
+
+      .menu a:visited {
+        color: var(--theme-color-light);
+      }
+
+      .bar1, .bar2, .bar3 {
+        width: 2.2rem;
+        height: .35rem;
+        background-color: var(--theme-color-light);
+        margin: .4rem 0;
+        transition: 0.3s;
+        box-shadow: 0px 0px 4px 2px black;
+        border-radius: 1rem;
+      }
+
+      .close .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+        box-shadow: none;
+      }
+      
+      .close .bar2 {opacity: 0;}
+      
+      .close .bar3 {
+        -webkit-transform: rotate(45deg) translate(-10px, -8px);
+        transform: rotate(45deg) translate(-10px, -8px);
+        box-shadow: none;
       }
     `;
   }
 
+  openMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
+    this.buttonCloseClass = this.isMenuVisible ? 'close' : '';
+  }
+
+  goTo(id) {
+    var element_to_scroll_to = this.shadowRoot.getElementById(id);
+    element_to_scroll_to.scrollIntoView();
+    this.isMenuVisible = false;
+    this.buttonCloseClass = this.isMenuVisible ? 'close' : '';
+  }
+
   render() {
     return html`
+      <div class="menu ${this.buttonCloseClass}">
+        <button id="menu-access" class="${this.buttonCloseClass}" @click="${this.openMenu}">  
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </button>
+        <div class="menu-opened" ?hidden="${!this.isMenuVisible}">
+          <a href="#home" @click="${()=>this.goTo('home')}">Bienvenida</a>
+          <a href="#guest-content" @click="${()=>this.goTo('guest-content')}">¿Te apuntas?</a>
+          <a href="#knowmore" @click="${()=>this.goTo('knowmore')}">¿Necesitas saber más?</a>
+          <a href="#book-content" @click="${()=>this.goTo('book-content')}">¿Nos dejas un mensaje?</a>
+          <a href="#secret" @click="${()=>this.goTo('secret')}">¿Nos haces un regalo?</a>
+          <a href="#story" @click="${()=>this.goTo('story')}">Nuestra historia</a>
+        </div>
+      </div>
 
-      <!-- <p>${this.message}</p> -->
-      <wedding-title title="¡Nos casamos!" subtitle="Irene & Alex" extra="24 octubre 2020"></wedding-title>
+      <header id="home">
+        <wedding-title title="¡Nos casamos!" subtitle="Irene & Alex" extra="24 octubre 2020, faltan ${this._getDaysToWedding()} días"></wedding-title>
+      </header>
       
       <div class="content">
         <p class="welcome">
@@ -293,24 +388,24 @@ export class WeddingMain extends LitElement {
           ${this.infoItems.map(item => html`<li><wedding-info-item title=${item.title} image=${item.image} description=${item.description}></amiibo-item></li>`)}
         </ul>
         
-        <section class="info">
+        <section class="info" id="guest-content">
           <h2>¿Te apuntas?</h2>
           <wedding-form-guest id="guest" @submit="${this.handleNewGuest}"></wedding-form-guest>
         </section>
-        <section class="info knowmore">
+        <section class="info" id="knowmore">
           <h2>¿Necesitas saber más?</h2>
           <wedding-sections sections="${JSON.stringify(this.knowMoreSections)}" showText="mostrar" hideText="ocultar"></wedding-sections>
         </section>
-        <section class="info">
+        <section class="info" id="book-content">
           <h2>¿Nos dejas un mensaje?</h2>
           <p class="description">Alimenta nuestros corazones llenándonos de amor y buena energía</p>
           <wedding-form-book id="book" @submit="${this.handleNewMessage}"></wedding-form-book>
         </section>
-        <section class="info secret">
+        <section class="info" id="secret">
           <h2>¿Quieres hacernos un regalo?</h2>
           <wedding-secret actionText="Mostrar cuenta bancaria" actionTextHidden="Ocultar cuenta bancaria" secret="ES11 0081 0471 5700 0130 1238"></wedding-secret>
         </section>
-        <section class="info story">
+        <section class="info" id="story">
           <h2>Esta es nuestra historia</h2>
           <wedding-sections sections="${JSON.stringify(this.storySections)}" showText="mostrar" hideText="ocultar"></wedding-sections>
         </section>
