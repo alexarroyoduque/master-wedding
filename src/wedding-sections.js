@@ -55,6 +55,10 @@ export class WeddingSections extends LitElement {
         color: #9C27B0;
       }
 
+      .separator-true {
+        margin-bottom: 1rem;
+      }
+
     `;
   }
   // <button @click="${()=>this.toggle(item)}">${item.isHidden ? this.showText : this.hideText}</button>
@@ -70,10 +74,10 @@ export class WeddingSections extends LitElement {
             
             <h3>${item.title}</h3>
             ${item.content.map(info => html`
-              <p ?hidden="${item.isHidden}">${info}</p>
-            `)}
-            ${item.links.map(link => html`
-              <a href="${link.href}" target="_blank" ?hidden="${item.isHidden}">${link.text}</a>
+              <p ?hidden="${item.isHidden}" class="separator-${info.hasSeparator}">
+                <span ?hidden="${info.isLink}">${info.text}</span>
+                <a ?hidden="${!info.isLink}" href="${info.href}" target="_blank">${info.text}</a>
+              </p>
             `)}
           </article>
         `)}

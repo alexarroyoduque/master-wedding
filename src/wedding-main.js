@@ -49,40 +49,190 @@ export class WeddingMain extends LitElement {
     this.storySections = [
       {
         title: 'Sobre ella',
-        content: ['Bollito de pan bao'],
-        links: [],
-        isHidden: true
+        isHidden: true,
+        content: [
+          {
+            isLink: false,
+            text: 'Bollito de pan bao'
+          }
+        ]
       },
       {
         title: 'Sobre él',
-        content: ['Bollo máximo'],
-        links: [],
-        isHidden: true
+        isHidden: true,
+        content: [
+          {
+            isLink: false,
+            text: 'Bollo máximo'
+          }
+        ]
+      },
+      {
+        title: '¿Cómo nos conocimos?',
+        isHidden: true,
+        content: [
+          {
+            isLink: false,
+            text: 'bla bla bla'
+          }
+        ]
       }
     ];
     this.knowMoreSections = [
       {
         title: 'Sobre el sitio',
-        content: ['La Quinta de Illescas', 'A-42 KM.30, 45200 Illescas, Toledo'],
-        links: [{text: 'Ver en Google maps', href: 'https://g.page/laquintadeillescas?share'}],
-        isHidden: true
+        isHidden: true,
+        content: [
+          {
+            isLink: false,
+            text: 'La Quinta de Illescas'
+          },
+          {
+            isLink: false,
+            text: 'A-42 KM.30, 45200 Illescas, Toledo'
+          },
+          {
+            isLink: true,
+            text: 'Ver en Google maps',
+            href: 'https://g.page/laquintadeillescas?share'
+          }
+        ]
       },
       {
         title: 'Cómo llegar',
-        content: ['Aparcamiento', 'Taxi', 'Público', 'Autobús de boda'],
-        links: [],
-        isHidden: true
+        isHidden: true,
+        content: [
+          {
+            isLink: false,
+            text: 'Desde la estación de Parla + Taxi: 915 47 82 00'
+          },
+          {
+            isLink: false,
+            text: 'Desde la estación de Illescas + Taxi: 925 51 55 15'
+          },
+          {
+            isLink: false,
+            text: 'El autobús de boda todavía no está confirmado, dependerá el número de invitados que lo necesiten desde Madrid.'
+          },
+          {
+            isLink: false,
+            text: 'Si vienes en transporte privado el sitio cuenta con aparcamiento'
+          }          
+        ]
       },
       {
         title: 'Alojamiento',
-        content: ['Hoteles cerca'],
-        links: [],
+        content: [
+          {
+            text: 'Hotel comendador **** (Carranque a 15 minutos en coche)',
+            isLink: false
+          },
+          {
+            text: 'Ver web',
+            href: 'https://www.hotelcomendador.es/',
+            isLink: true
+          },
+          {
+            text: 'Teléfono: 925 52 95 66',
+            isLink: false,
+            hasSeparator: true
+          },
+          {
+            text: 'Complejo París *** (Illescas a 7 minutos en coche)',
+            isLink: false
+          },
+          {
+            text: 'Ver web',
+            href: 'http://www.complejoparis.com/',
+            isLink: true
+          },
+          {
+            text: 'Teléfono: 925 51 27 87',
+            isLink: false,
+            hasSeparator: true
+          },
+          {
+            text: 'Hotel Carlos I *** (Yuncos a 13 minutos en coche)',
+            isLink: false
+          },
+          {
+            text: 'Ver web',
+            href: 'http://www.hotelcarlos1.com/',
+            isLink: true
+          },
+          {
+            text: 'Teléfono: 925 55 79 19',
+            isLink: false,
+            hasSeparator: true
+          },
+          {
+            text: 'Hotel NH Parla *** (Parla a 7 minutos en coche)',
+            isLink: false
+          },
+          {
+            text: 'Ver web',
+            href: 'https://www.nh-hoteles.es/hotel/nh-parla?campid=8435708&utm_campaign=paid-search_brand&utm_source=google&utm_term=spanish-all&utm_medium=paid-search&gclid=EAIaIQobChMIpI2CiL2F6AIV2obVCh3xGQiIEAAYASAAEgKXi_D_BwE',
+            isLink: true
+          },
+          {
+            text: 'Teléfono: 916 64 41 60',
+            isLink: false,
+            hasSeparator: true
+          },
+          {
+            text: 'Route 42 *** (Illescas a 3 minutos en coche)',
+            isLink: false
+          },
+          {
+            text: 'Teléfono: 925 52 67 20',
+            isLink: false,
+            hasSeparator: true
+          },
+          {
+            text: 'Vivar ** (Griñón a 11 minutos en coche)',
+            isLink: false
+          },
+          {
+            text: 'Ver web',
+            href: 'http://www.hotelvivar.com/',
+            isLink: true
+          },
+          {
+            text: 'Teléfono: 918 14 02 34',
+            isLink: false,
+            hasSeparator: true
+          }, 
+          {
+            text: 'Real de Illescas * (Illescas a 8 minutos en coche)',
+            isLink: false
+          }, 
+          {
+            text: 'Ver web',
+            href: 'https://hotelrealillescas.es/',
+            isLink: true
+          },
+          {
+            text: 'Teléfono: 925 54 16 99',
+            isLink: false,
+            hasSeparator: true
+          }, 
+        ],
         isHidden: true
       },
       {
         title: 'Contacto',
-        content: ['Alejandro: 649 19 80 56', 'Irene: 628 811 903'],
-        links: [],
+        content: [
+          {
+            text: 'Alejandro: 649 19 80 56',
+            isLink: false,
+            hasSeparator: true
+          },
+          {
+            text: 'Irene: 628 811 903',
+            isLink: false,
+            hasSeparator: true
+          }
+        ],
         isHidden: true
       }];
 
@@ -289,6 +439,12 @@ export class WeddingMain extends LitElement {
         font-size: 1rem;
       }
 
+      @media screen and (min-width: 1024px) {
+        .menu {
+          right: calc(50% - 32rem);
+        }
+      }
+
       .menu-opened {
         padding-top: 4rem;
         text-align: center;
@@ -324,7 +480,7 @@ export class WeddingMain extends LitElement {
         height: .35rem;
         background-color: var(--theme-color-light);
         margin: .4rem 0;
-        transition: 0.3s;
+        transition: 0.4s;
         box-shadow: 0px 0px 4px 2px black;
         border-radius: 1rem;
       }

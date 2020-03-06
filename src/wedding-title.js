@@ -30,13 +30,11 @@ export class WeddingTitle extends LitElement {
         position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: url("./src/images/welcome.jpg");
-        filter: grayscale(100%);
+        background: url("./src/images/welcome.png");
         background-position-x: center;
         background-repeat: no-repeat;
         background-size: cover;
-        filter: grayscale(100%);
-        -webkit-filter: grayscale(100%);
+
       }
 
       @media screen and (min-width: 700px) {
@@ -65,6 +63,7 @@ export class WeddingTitle extends LitElement {
 
       .extra {
         font-size: 1.4rem;
+        text-shadow: 0px 0px 4px #03A9F4;     
       }
     `;
   }
