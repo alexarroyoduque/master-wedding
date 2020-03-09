@@ -9,6 +9,7 @@ import('./wedding-form-guest.js')
 import('./wedding-secret.js')
 import('./wedding-sections.js')
 import('./wedding-form-book.js')
+import('./wedding-full-animation.js')
 
 export class WeddingMain extends LitElement {
 
@@ -303,10 +304,12 @@ export class WeddingMain extends LitElement {
 
   handleNewGuest(ev) {    
     this.updateDataBase('invitados', ev.detail);  
+    this.shadowRoot.getElementById('waitingForYou').activeAnimation();
     this.shadowRoot.getElementById('guest').resetForm();
   }
 
   handleNewMessage(ev) {   
+    this.shadowRoot.getElementById('thanks').activeAnimation();
     this.updateDataBase('mensajes', ev.detail);
     this.shadowRoot.getElementById('book').resetForm();
   }
@@ -334,6 +337,10 @@ export class WeddingMain extends LitElement {
 
         --wedding-input-text-highlighted-color: var(--theme-color-golden-dark);
         --wedding-input-textarea-highlighted-color: var(--theme-color-golden-dark);
+      }
+
+      wedding-full-animation {
+        font-family: var(--theme-primary-font-family);
       }
 
 
@@ -515,6 +522,8 @@ export class WeddingMain extends LitElement {
 
   render() {
     return html`
+      <wedding-full-animation id="waitingForYou" text="¡Te esperamos!"></wedding-full-animation>
+      <wedding-full-animation id="thanks" text="¡Gracias!"></wedding-full-animation>
       <div class="menu ${this.buttonCloseClass}">
         <button id="menu-access" class="${this.buttonCloseClass}" @click="${this.openMenu}">  
           <div class="bar1"></div>

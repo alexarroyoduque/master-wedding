@@ -53,17 +53,18 @@ export class WeddingTitle extends LitElement {
         padding-top: 12rem;
         font-size: 1.9rem;
         line-height: 2rem;
+        font-weight: bold;
       }
 
       h1, .subtitle {
         color: white;
         opacity: .9;
-        text-shadow: 0px 0px 4px #c5a600;     
+        text-shadow: 0px 0px 4px #827717;     
       }
 
       .extra {
         font-size: 1.4rem;
-        text-shadow: 0px 0px 4px #03A9F4;     
+        text-shadow: 0px 0px 4px #6A1B9A;
       }
     `;
   }
