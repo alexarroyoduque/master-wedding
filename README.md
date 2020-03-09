@@ -25,9 +25,19 @@ polymer serve build/default
 firebase deploy
 ```
 
+## Development info
+Images reduced with pngquant.
+
+`
+./src/pngquant --quality=25 ./src/images/*.png && ./src/pngquant --quality=25 ./src/images/*.jpg
+`
 ## Credits
 > Developed by @AlexArroyoDuque
 
 > Sample LitElement project [https://github.com/PolymerLabs/start-lit-element](https://github.com/PolymerLabs/start-lit-element)
 
 > Google fonts [https://fonts.google.com](https://fonts.google.com)
+
+> pngquant [https://pngquant.org/](https://pngquant.org/)
+
+

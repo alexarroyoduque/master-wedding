@@ -44,11 +44,16 @@ export class WeddingFullAnimation extends LitElement {
         position: fixed;
         z-index: 9999;
         display: none;
+        background-color: #4CAF50;
+      }
+
+      .message-container {
+        display: flex;
+        justify-content:center;
+        align-items:center;
       }
 
       p {
-        text-align: center;
-        margin-top: 10rem;
         font-size: 2.5rem;
       }
 
@@ -61,15 +66,14 @@ export class WeddingFullAnimation extends LitElement {
 
       @keyframes show-animation {
         0% {
-          background-color: green;
           opacity: 0;
         }
-        20% {
-          opacity: .8;
+        15% {
+          opacity: .9;
         }
 
         90% {
-          opacity: .2;
+          opacity: .3;
         }
 
         100% {
@@ -83,7 +87,9 @@ export class WeddingFullAnimation extends LitElement {
   render() {
     return html`
       <div id="full">
+      <div class="message-container">
         <p>${this.text}</p>
+      </div>
       </div>
     `;
   }

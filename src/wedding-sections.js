@@ -48,7 +48,7 @@ export class WeddingSections extends LitElement {
 
       a, p {
         margin: .2rem 0 ;
-        font-size: .8rem;
+        font-size: .87rem;
       }
 
       a, a:visited {

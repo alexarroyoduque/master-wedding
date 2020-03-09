@@ -37,14 +37,13 @@ export class WeddingMain extends LitElement {
     this.infoItems = [
       {
         title: '¿Dónde?',
-        image: './src/images/radar.png',
+        image: './src/images/radar-fs8.png',
         description: 'En la Quinta de Illescas'
       },
       {
         title: '¿Hora?',
-        // image: './src/images/clock.png',
-        image: './src/images/fullmetal.png',
-        description: `A las 12:30 AM`
+        image: './src/images/fullmetal-fs8.png',
+        description: `Aún por determinar`
       }
     ];
     this.storySections = [
@@ -54,7 +53,7 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'Bollito de pan bao'
+            text: 'Pan bao'
           }
         ]
       },
@@ -64,12 +63,22 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'Bollo máximo'
+            text: 'Pan blanco'
           }
         ]
       },
       {
         title: '¿Cómo nos conocimos?',
+        isHidden: true,
+        content: [
+          {
+            isLink: false,
+            text: 'bla bla bla'
+          }
+        ]
+      },
+      {
+        title: '¿La luna de miel?',
         isHidden: true,
         content: [
           {
@@ -424,15 +433,15 @@ export class WeddingMain extends LitElement {
       }
 
       #knowmore:after {
-        background-image: url('./src/images/moguri.png');
+        background-image: url('./src/images/moguri-fs8.png');
       }
 
       #secret:after {
-        background-image: url('./src/images/box.png');
+        background-image: url('./src/images/box-fs8.png');
       }
 
       #story:after {
-        background-image: url('./src/images/ffx.png');
+        background-image: url('./src/images/ffx-fs8.png');
       }
 
       .menu {

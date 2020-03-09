@@ -12,9 +12,6 @@ export class WeddingTitle extends LitElement {
     };
   }
 
-  // background: url("https://wallpaperaccess.com/full/1804743.jpg");
-        // background-position-y: -8rem;
-
   static get styles() {
     return css`
       div {
@@ -30,7 +27,7 @@ export class WeddingTitle extends LitElement {
         position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: url("./src/images/welcome.png");
+        background: url("./src/images/welcome-fs8.png");
         background-position-x: center;
         background-repeat: no-repeat;
         background-size: cover;
