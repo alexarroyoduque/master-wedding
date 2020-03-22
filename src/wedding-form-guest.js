@@ -107,12 +107,12 @@ export class WeddingFormGuest extends LitElement {
   render() {
     return html`
       <div class="wrapper">
-        <wedding-input-text labelText="Nombre (obligatorio)" inputName="name" inputValue="${this.name}" @change="${this.nameChange}"></wedding-input-text>
+        <wedding-input-text labelText="Nombre y apellidos (obligatorio)" inputName="name" inputValue="${this.name}" @change="${this.nameChange}"></wedding-input-text>
         <wedding-input-text labelText="Correo electrónico" inputName="mail" inputValue="${this.mail}" @change="${this.mailChange}"></wedding-input-text>
         <wedding-input-text labelText="¿Cuántos adultos sois?" inputType="number" inputName="adults" inputValue="${this.adults}" @change="${this.adultsChange}" autoSelect></wedding-input-text>
         <wedding-input-text labelText="¿Viene algún niño?" inputType="number" inputName="junior" inputValue="${this.junior}" @change="${this.juniorChange}" autoSelect></wedding-input-text>
         <wedding-input-text labelText="¿Alergias o algo que debamos saber?" inputName="allergy" inputValue="${this.allergy}" @change="${this.allergyChange}"></wedding-input-text>
-        <wedding-input-checkbox labelText="¿Crees que necesitarás autobús?" inputName="${this.bus}" inputValue="${this.bus}" @change="${this.busChange}"></wedding-input-checkbox>
+        <wedding-input-checkbox labelText="Marca si crees que necesitarás autobús" inputName="${this.bus}" inputValue="${this.bus}" @change="${this.busChange}"></wedding-input-checkbox>
   
         <wedding-button text="Confirmar" ?isDisabled="${this.buttonIsDisabled}" @clicked="${this.handleClick}"></weedding-button>
       </div>

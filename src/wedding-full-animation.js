@@ -7,7 +7,8 @@ export class WeddingFullAnimation extends LitElement {
   static get properties() {
     return {
       text: { type: String },
-      time: { type: Number }
+      time: { type: Number },
+      backgroundColor: { type: String }
     };
   }
 
@@ -15,14 +16,21 @@ export class WeddingFullAnimation extends LitElement {
     super();
     this.text = '';
     this.time = 4;
+    this.backgroundColor = 'gray';
+  }
+
+  firstUpdated() {
+    var messageContainer = this.shadowRoot.getElementById('message-container');
+    messageContainer.setAttribute('style', `background-color: ${this.backgroundColor}`);
+    var element = this.shadowRoot.getElementById('full');
+    element.setAttribute('style', `animation-duration: ${this.time}s; background-color: red`);
   }
 
   activeAnimation() {
     var element = this.shadowRoot.getElementById('full');
-    element.setAttribute('style', `animation-duration: ${this.time}s`);
+    var timer;
 
     element.classList.add('active');
-    var timer;
     timer = window.setTimeout(()=> {
       window.clearTimeout(timer);
       element.classList.remove('active');
@@ -44,13 +52,13 @@ export class WeddingFullAnimation extends LitElement {
         position: fixed;
         z-index: 9999;
         display: none;
-        background-color: #4CAF50;
       }
 
-      .message-container {
+      #message-container {
         display: flex;
         justify-content:center;
         align-items:center;
+        background-color: #4CAF50;
       }
 
       p {
@@ -87,9 +95,9 @@ export class WeddingFullAnimation extends LitElement {
   render() {
     return html`
       <div id="full">
-      <div class="message-container">
-        <p>${this.text}</p>
-      </div>
+        <div id="message-container">
+          <p>${this.text}</p>
+        </div>
       </div>
     `;
   }

@@ -20,6 +20,7 @@ export class WeddingTitle extends LitElement {
         font-size: 2rem;
         line-height: 4rem;
         position: relative;
+        text-shadow: rgb(0, 0, 0) 0px 0px 4px;
       }
 
       div::before {
@@ -56,12 +57,10 @@ export class WeddingTitle extends LitElement {
       h1, .subtitle {
         color: white;
         opacity: .9;
-        text-shadow: 0px 0px 4px #827717;     
       }
 
       .extra {
         font-size: 1.4rem;
-        text-shadow: 0px 0px 4px #6A1B9A;
       }
     `;
   }

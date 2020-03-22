@@ -43,7 +43,7 @@ export class WeddingMain extends LitElement {
       {
         title: '¿Hora?',
         image: './src/images/fullmetal-fs8.png',
-        description: `Aún por determinar`
+        description: `Por determinar (Medio día)`
       }
     ];
     this.storySections = [
@@ -53,7 +53,11 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'Pan bao'
+            text: 'Lo mejor de Irene es su capacidad de escuchar y de empatizar con los demás. Siempre tiene buenas palabras y es capaz de hacer que te sientas mejor incluso en los malos momentos. Como a mi le gustan mucho otras culturas exóticas pudiendo compartir juntos desde películas hasta los bocados de comida más peculiares. Aunque no os confiéis porque también tiene su carácter y lo sacará a relucir cuando sea necesario. También le gusta bailar y aprovechará este evento tan especial para que no me quede más remedio que marcarnos el baile más alucinante de la historia.'
+          },
+          {
+            isLink: false,
+            text: 'Firmado: Alejandro'
           }
         ]
       },
@@ -63,7 +67,11 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'Pan blanco'
+            text: 'Alex es alguien muy especial que aún no ha perdido esa esencia del niño interior que todos llevamos dentro sacándola a relucir muy a menudo. Con él puedes ver la vida desde otra perspectiva, desde la de un niño que ve y hace las cosas por primera vez. Es un artesano y una persona muy creativa por eso siempre está inventando alguna cosa con la que pasar el tiempo: videojuegos hechos por él mismo, podcast… también le gusta mucho la cocina y siempre pone toda su energía, amor y pasión en todo lo que hace. Es amante de las bandas sonoras de películas y videojuegos con los que se le eriza la piel.  Alex es cariñoso y detallista por eso es tan fácil que se cuele dentro de los corazones de la gente haciéndose querer.'
+          },
+          {
+            isLink: false,
+            text: 'Firmado: Irene'
           }
         ]
       },
@@ -73,7 +81,7 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'bla bla bla'
+            text: 'Se conocieron allá por 2006. Los dos habían ido sin saberlo al mismo colegio y al mismo instituto pero no fue hasta que la vecina de Alejandro y mejor amiga de Irene los presentó por casualidad en aquel mítico para muchos “messenger” cuando se conocieron. Desde entonces, no pararon de hablar horas y horas y algo mágico empezó a pasar entre ellos: ¿se estaban enamorando por primera vez? Coincidían por los pasillos y los recreos fugazmente y sin apenas tener contacto pero no fue hasta el 17 de mayo de 2007 cuando quedaron por primera vez a solas. Desde entonces, llevan juntos más de 13 años y han vivido mil historias y aventuras llenas de buenos y no tan buenos momentos, pero sobre todo muchas risas y mucho amor. '
           }
         ]
       },
@@ -83,7 +91,7 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'bla bla bla'
+            text: 'Quienes nos conocéis sabéis lo mucho que nos encanta la cultura nipona así que no podía ser de otra manera...nuestro viaje soñado es y siempre será Japçon y allá que nos vamos. ¡Sayonara!'
           }
         ]
       }
@@ -134,7 +142,7 @@ export class WeddingMain extends LitElement {
         title: 'Alojamiento',
         content: [
           {
-            text: 'Hotel comendador **** (Carranque a 15 minutos en coche)',
+            text: 'Hotel comendador **** (En Carranque a 15 minutos en coche)',
             isLink: false
           },
           {
@@ -148,7 +156,7 @@ export class WeddingMain extends LitElement {
             hasSeparator: true
           },
           {
-            text: 'Complejo París *** (Illescas a 7 minutos en coche)',
+            text: 'Complejo París *** (En Illescas a 7 min. en coche)',
             isLink: false
           },
           {
@@ -162,7 +170,7 @@ export class WeddingMain extends LitElement {
             hasSeparator: true
           },
           {
-            text: 'Hotel Carlos I *** (Yuncos a 13 minutos en coche)',
+            text: 'Hotel Carlos I *** (En Yuncos a 13 min. en coche)',
             isLink: false
           },
           {
@@ -176,7 +184,7 @@ export class WeddingMain extends LitElement {
             hasSeparator: true
           },
           {
-            text: 'Hotel NH Parla *** (Parla a 7 minutos en coche)',
+            text: 'Hotel NH Parla *** (En Parla a 7 min. en coche)',
             isLink: false
           },
           {
@@ -190,7 +198,7 @@ export class WeddingMain extends LitElement {
             hasSeparator: true
           },
           {
-            text: 'Route 42 *** (Illescas a 3 minutos en coche)',
+            text: 'Route 42 *** (En Illescas a 3 min. en coche)',
             isLink: false
           },
           {
@@ -199,7 +207,7 @@ export class WeddingMain extends LitElement {
             hasSeparator: true
           },
           {
-            text: 'Vivar ** (Griñón a 11 minutos en coche)',
+            text: 'Vivar ** (En Griñón a 11 min. en coche)',
             isLink: false
           },
           {
@@ -213,7 +221,7 @@ export class WeddingMain extends LitElement {
             hasSeparator: true
           }, 
           {
-            text: 'Real de Illescas * (Illescas a 8 minutos en coche)',
+            text: 'Real de Illescas * (En Illescas a 8 min. en coche)',
             isLink: false
           }, 
           {
@@ -308,17 +316,26 @@ export class WeddingMain extends LitElement {
     var dbDate = this._generateDateDB();
     var dataForDataBase = data;
     dataForDataBase.fechaInscrito = dbDate;
-    firebase.database().ref(`${dbName}/${data.nombre}_${dbDate}`).set(dataForDataBase);
+    firebase
+      .database()
+      .ref(`${dbName}/${data.nombre}_${dbDate}`)
+      .set(dataForDataBase, (error) => {
+        if (!error) {
+          // Data saved successfully!
+          this.shadowRoot.getElementById('thanks').activeAnimation();
+        } else {
+          // The write failed...
+          this.shadowRoot.getElementById('error').activeAnimation();
+        }
+      });
   }
 
   handleNewGuest(ev) {    
     this.updateDataBase('invitados', ev.detail);  
-    this.shadowRoot.getElementById('waitingForYou').activeAnimation();
     this.shadowRoot.getElementById('guest').resetForm();
   }
 
   handleNewMessage(ev) {   
-    this.shadowRoot.getElementById('thanks').activeAnimation();
     this.updateDataBase('mensajes', ev.detail);
     this.shadowRoot.getElementById('book').resetForm();
   }
@@ -433,11 +450,12 @@ export class WeddingMain extends LitElement {
       }
 
       #knowmore:after {
-        background-image: url('./src/images/moguri-fs8.png');
+        background-image: url('./src/images/kingdom-hearts-fs8.png');
       }
 
       #secret:after {
-        background-image: url('./src/images/box-fs8.png');
+        background-image: url('./src/images/coin-fs8.png');
+        left: 5rem;
       }
 
       #story:after {
@@ -531,8 +549,8 @@ export class WeddingMain extends LitElement {
 
   render() {
     return html`
-      <wedding-full-animation id="waitingForYou" text="¡Te esperamos!"></wedding-full-animation>
-      <wedding-full-animation id="thanks" text="¡Gracias!"></wedding-full-animation>
+      <wedding-full-animation id="thanks" text="¡Gracias!" backgroundColor="#4CAF50"></wedding-full-animation>
+      <wedding-full-animation id="error" text="Error..." backgroundColor="#f44336"></wedding-full-animation>
       <div class="menu ${this.buttonCloseClass}">
         <button id="menu-access" class="${this.buttonCloseClass}" @click="${this.openMenu}">  
           <div class="bar1"></div>
@@ -555,7 +573,7 @@ export class WeddingMain extends LitElement {
       
       <div class="content">
         <p class="welcome">
-          Estamos preparando una boda que hará historia y queremos compartir contigo nuestro amor y felicidad. Para que estés al tanto de todo, hemos creado esta web mientras llega gran día. Nos vemos muy pronto ¡Millones de besos!
+          Estamos preparando una boda muy especial y queremos compartir contigo nuestra felicidad y amor. Mientras contamos las horas para el gran día puedes consultar la información necesaria en esta web. ¡Nos vemos muy pronto! 
         </p>
 
         <ul>
@@ -563,7 +581,7 @@ export class WeddingMain extends LitElement {
         </ul>
         
         <section class="info" id="guest-content">
-          <h2>¿Te apuntas?</h2>
+          <h2>¿Te vienes?</h2>
           <wedding-form-guest id="guest" @submit="${this.handleNewGuest}"></wedding-form-guest>
         </section>
         <section class="info" id="knowmore">
@@ -583,6 +601,9 @@ export class WeddingMain extends LitElement {
           <h2>Esta es nuestra historia</h2>
           <wedding-sections sections="${JSON.stringify(this.storySections)}" showText="mostrar" hideText="ocultar"></wedding-sections>
         </section>
+        <p class="welcome">
+          Y ahora que lo sabéis todo…¡no podéis faltar! Os esperamos para pasarlo en grande rodeados de las personas más especiales para nosotros. ¡Os queremos!
+        </p>
       </div>
 
     `;
