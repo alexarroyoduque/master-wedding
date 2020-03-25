@@ -43,7 +43,7 @@ export class WeddingMain extends LitElement {
       {
         title: '¿Hora?',
         image: './src/images/fullmetal-fs8.png',
-        description: `Por determinar (Medio día)`
+        description: `Pendiente (12:00-12:30)`
       }
     ];
     this.storySections = [
@@ -53,7 +53,7 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'Lo mejor de Irene es su capacidad de escuchar y de empatizar con los demás. Siempre tiene buenas palabras y es capaz de hacer que te sientas mejor incluso en los malos momentos. Como a mi le gustan mucho otras culturas exóticas pudiendo compartir juntos desde películas hasta los bocados de comida más peculiares. Aunque no os confiéis porque también tiene su carácter y lo sacará a relucir cuando sea necesario. También le gusta bailar y aprovechará este evento tan especial para que no me quede más remedio que marcarnos el baile más alucinante de la historia.'
+            text: 'Lo que más me gusta de Irene es su capacidad de escuchar y de empatizar con los demás. Siempre tiene buenas palabras y es capaz de hacer que te sientas mejor incluso en los malos momentos, aunque también saca su carácter con las personas que más quiere. Como a mi, le gustan mucho otras culturas exóticas pudiendo compartir juntos desde películas, series, hasta los bocados de comida más peculiares. También le encanta bailar y seguro que aprovechará este evento tan especial para que no me quede más remedio que marcarnos el baile más alucinante de la historia. Es una persona muy detallista y cariñosa y estoy seguro de que tendrá guardada alguna sorpresa muy especial para este gran día.'
           },
           {
             isLink: false,
@@ -67,7 +67,7 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'Alex es alguien muy especial que aún no ha perdido esa esencia del niño interior que todos llevamos dentro sacándola a relucir muy a menudo. Con él puedes ver la vida desde otra perspectiva, desde la de un niño que ve y hace las cosas por primera vez. Es un artesano y una persona muy creativa por eso siempre está inventando alguna cosa con la que pasar el tiempo: videojuegos hechos por él mismo, podcast… también le gusta mucho la cocina y siempre pone toda su energía, amor y pasión en todo lo que hace. Es amante de las bandas sonoras de películas y videojuegos con los que se le eriza la piel.  Alex es cariñoso y detallista por eso es tan fácil que se cuele dentro de los corazones de la gente haciéndose querer.'
+            text: 'Alex es una persona muy especial que aún no ha perdido esa esencia del niño interior que todos llevamos dentro. Con él puedes ver la vida desde la perspectiva de un niño que descubre y hace las cosas por primera vez. Es un artesano y una persona muy creativa por eso siempre está inventando alguna cosa con la que echar un buen ratillo: videojuegos hechos por él mismo, podcast, dibujos… también le gusta mucho la cocina y siempre pone toda su energía, amor y pasión en todo lo que hace. Es amante de las bandas sonoras de películas y videojuegos con los que siempre se le eriza la piel.  Alex es cariñoso y detallista por eso es tan fácil que se cuele dentro de los corazones de la gente y por eso cautivó el mío.'
           },
           {
             isLink: false,
@@ -76,12 +76,12 @@ export class WeddingMain extends LitElement {
         ]
       },
       {
-        title: '¿Cómo nos conocimos?',
+        title: 'Sobre nosotros',
         isHidden: true,
         content: [
           {
             isLink: false,
-            text: 'Se conocieron allá por 2006. Los dos habían ido sin saberlo al mismo colegio y al mismo instituto pero no fue hasta que la vecina de Alejandro y mejor amiga de Irene los presentó por casualidad en aquel mítico para muchos “messenger” cuando se conocieron. Desde entonces, no pararon de hablar horas y horas y algo mágico empezó a pasar entre ellos: ¿se estaban enamorando por primera vez? Coincidían por los pasillos y los recreos fugazmente y sin apenas tener contacto pero no fue hasta el 17 de mayo de 2007 cuando quedaron por primera vez a solas. Desde entonces, llevan juntos más de 13 años y han vivido mil historias y aventuras llenas de buenos y no tan buenos momentos, pero sobre todo muchas risas y mucho amor. '
+            text: 'Nos conocimos allá por 2006. Los dos habíamos ido sin saberlo al mismo colegio y al mismo instituto pero no fue hasta que la vecina de Alejandro y mejor amiga de Irene nos presentó por casualidad en aquel mítico para muchos “messenger” cuando nos conocimos. Desde entonces, no paramos de hablar horas y horas y algo mágico nos empezó a pasar: ¿nos estábamos enamorando? Mientras, coincidíamos por los pasillo y recreos sin apenas tener contacto y por fin, el 17 de mayo de 2007 quedamos por primera vez. Desde entonces, llevamos juntos más de 13 años y hemos vivido mil historias y aventuras llenas de buenos y malos momentos, pero sobre todo, muchas risas y mucho amor.'
           }
         ]
       },
@@ -91,7 +91,7 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'Quienes nos conocéis sabéis lo mucho que nos encanta la cultura nipona así que no podía ser de otra manera...nuestro viaje soñado es y siempre será Japçon y allá que nos vamos. ¡Sayonara!'
+            text: 'Quienes nos conocéis sabéis lo mucho que nos encanta la cultura nipona así que no podía ser de otra manera...nuestro viaje soñado es y siempre será Japón y allá que nos vamos. ¡Sayonara!'
           }
         ]
       }
@@ -559,11 +559,11 @@ export class WeddingMain extends LitElement {
         </button>
         <div class="menu-opened" ?hidden="${!this.isMenuVisible}">
           <a href="#home" @click="${()=>this.goTo('home')}">Bienvenida</a>
-          <a href="#guest-content" @click="${()=>this.goTo('guest-content')}">¿Te apuntas?</a>
+          <a href="#guest-content" @click="${()=>this.goTo('guest-content')}">¿Te vienes?</a>
           <a href="#knowmore" @click="${()=>this.goTo('knowmore')}">¿Necesitas saber más?</a>
           <a href="#book-content" @click="${()=>this.goTo('book-content')}">¿Nos dejas un mensaje?</a>
-          <a href="#secret" @click="${()=>this.goTo('secret')}">¿Nos haces un regalo?</a>
-          <a href="#story" @click="${()=>this.goTo('story')}">Nuestra historia</a>
+          <a href="#secret" @click="${()=>this.goTo('secret')}">¿Quieres hacernos un regalo?</a>
+          <a href="#story" @click="${()=>this.goTo('story')}">Esta es nuestra historia</a>
         </div>
       </div>
 
