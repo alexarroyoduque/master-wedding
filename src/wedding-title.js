@@ -56,7 +56,7 @@ export class WeddingTitle extends LitElement {
 
       h1, .subtitle {
         color: white;
-        opacity: .9;
+        opacity: .999;
       }
 
       .extra {

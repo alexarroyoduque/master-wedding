@@ -54,10 +54,6 @@ export class WeddingMain extends LitElement {
           {
             isLink: false,
             text: 'Lo que más me gusta de Irene es su capacidad de escuchar y de empatizar con los demás. Siempre tiene buenas palabras y es capaz de hacer que te sientas mejor incluso en los malos momentos, aunque también saca su carácter con las personas que más quiere. Como a mi, le gustan mucho otras culturas exóticas pudiendo compartir juntos desde películas, series, hasta los bocados de comida más peculiares. También le encanta bailar y seguro que aprovechará este evento tan especial para que no me quede más remedio que marcarnos el baile más alucinante de la historia. Es una persona muy detallista y cariñosa y estoy seguro de que tendrá guardada alguna sorpresa muy especial para este gran día.'
-          },
-          {
-            isLink: false,
-            text: 'Firmado: Alejandro'
           }
         ]
       },
@@ -68,10 +64,6 @@ export class WeddingMain extends LitElement {
           {
             isLink: false,
             text: 'Alex es una persona muy especial que aún no ha perdido esa esencia del niño interior que todos llevamos dentro. Con él puedes ver la vida desde la perspectiva de un niño que descubre y hace las cosas por primera vez. Es un artesano y una persona muy creativa por eso siempre está inventando alguna cosa con la que echar un buen ratillo: videojuegos hechos por él mismo, podcast, dibujos… también le gusta mucho la cocina y siempre pone toda su energía, amor y pasión en todo lo que hace. Es amante de las bandas sonoras de películas y videojuegos con los que siempre se le eriza la piel.  Alex es cariñoso y detallista por eso es tan fácil que se cuele dentro de los corazones de la gente y por eso cautivó el mío.'
-          },
-          {
-            isLink: false,
-            text: 'Firmado: Irene'
           }
         ]
       },
@@ -81,7 +73,7 @@ export class WeddingMain extends LitElement {
         content: [
           {
             isLink: false,
-            text: 'Nos conocimos allá por 2006. Los dos habíamos ido sin saberlo al mismo colegio y al mismo instituto pero no fue hasta que la vecina de Alejandro y mejor amiga de Irene nos presentó por casualidad en aquel mítico para muchos “messenger” cuando nos conocimos. Desde entonces, no paramos de hablar horas y horas y algo mágico nos empezó a pasar: ¿nos estábamos enamorando? Mientras, coincidíamos por los pasillo y recreos sin apenas tener contacto y por fin, el 17 de mayo de 2007 quedamos por primera vez. Desde entonces, llevamos juntos más de 13 años y hemos vivido mil historias y aventuras llenas de buenos y malos momentos, pero sobre todo, muchas risas y mucho amor.'
+            text: 'Nos conocimos allá por 2006. Los dos habíamos ido sin saberlo al mismo colegio y al mismo instituto pero no fue hasta que la vecina de Alejandro y mejor amiga de Irene nos presentó por casualidad en aquel mítico para muchos “messenger” cuando nos conocimos. Desde entonces, no paramos de hablar horas y horas y algo mágico nos empezó a pasar: ¿nos estábamos enamorando? Mientras, coincidíamos por los pasillos y recreos sin apenas tener contacto y por fin, el 17 de mayo de 2007 quedamos por primera vez. Desde entonces, llevamos juntos más de 13 años y hemos vivido mil historias y aventuras llenas de buenos y malos momentos, pero sobre todo, muchas risas y mucho amor.'
           }
         ]
       },
@@ -130,7 +122,7 @@ export class WeddingMain extends LitElement {
           },
           {
             isLink: false,
-            text: 'El autobús de boda todavía no está confirmado, dependerá el número de invitados que lo necesiten desde Madrid.'
+            text: 'El autobús de boda todavía no está confirmado, dependerá del número de invitados que lo necesiten desde Madrid.'
           },
           {
             isLink: false,
@@ -246,7 +238,7 @@ export class WeddingMain extends LitElement {
             hasSeparator: true
           },
           {
-            text: 'Irene: 628 811 903',
+            text: 'Irene: 628 81 19 03',
             isLink: false,
             hasSeparator: true
           }

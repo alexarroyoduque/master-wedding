@@ -63,28 +63,28 @@ export class WeddingInputCheckbox extends LitElement {
         height: 30px;
         width: 30px;
         transition: background-color .2s ease-in;
-        background-color: #E0E0E0; //unchecked-background
+        background-color: #eee; //unchecked-background
         border-radius: 4px;
       }
       /* On mouse-over, add a grey background color */
       .container-checkbox:hover input ~ .checkmark {
-        background-color: #BDBDBD; //unchecked-background-hover
+        background-color: #eee; //unchecked-background-hover
       }
       /* When the checkbox is checked, add a custom color background */
       .container-checkbox input:checked ~ .checkmark {
-        background-color: #E0E0E0; //checked-background
+        background-color: var(--wedding-input-checkbox-highlighted-background-color, #fcd734); //checked-background
       }
       /* Create the checkmark/indicator (hidden when not checked) */
       .checkmark:after {
         content: "";
         position: absolute;
         display: block;
-        border-color: #FAFAFA; //unchecked-color
+        border-color: #eee; //unchecked-color
       }
       /* Show the checkmark when checked */
       .container-checkbox input:checked ~ .checkmark:after {
         display: block;
-        border-color: var(--wedding-form-highlighted-color); //checked-color
+        border-color: var(--wedding-input-checkbox-highlighted-color, #c5a600); //checked-color
       }
       /* Style the checkmark/indicator */
       .container-checkbox .checkmark:after {
