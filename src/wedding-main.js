@@ -76,7 +76,7 @@ export class WeddingMain extends LitElement {
             text: 'Nos conocimos allá por 2006. Los dos habíamos ido sin saberlo al mismo colegio y al mismo instituto pero no fue hasta que la vecina de Alejandro y mejor amiga de Irene nos presentó por casualidad en aquel mítico para muchos “messenger” cuando nos conocimos. Desde entonces, no paramos de hablar horas y horas y algo mágico nos empezó a pasar: ¿nos estábamos enamorando? Mientras, coincidíamos por los pasillos y recreos sin apenas tener contacto y por fin, el 17 de mayo de 2007 quedamos por primera vez. Desde entonces, llevamos juntos más de 13 años y hemos vivido mil historias y aventuras llenas de buenos y malos momentos, pero sobre todo, muchas risas y mucho amor.'
           }
         ]
-      },
+      }/*,
       {
         title: '¿La luna de miel?',
         isHidden: true,
@@ -86,7 +86,7 @@ export class WeddingMain extends LitElement {
             text: 'Quienes nos conocéis sabéis lo mucho que nos encanta la cultura nipona así que no podía ser de otra manera...nuestro viaje soñado es y siempre será Japón y allá que nos vamos. ¡Sayonara!'
           }
         ]
-      }
+      }*/
     ];
     this.knowMoreSections = [
       {
