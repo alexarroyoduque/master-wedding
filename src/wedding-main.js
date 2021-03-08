@@ -25,7 +25,7 @@ export class WeddingMain extends LitElement {
   }
 
   _getDaysToWedding() {
-    var daysToWedding = (new Date('10/24/2020') - new Date().getTime()) /  (1000 * 3600 * 24)
+    var daysToWedding = (new Date('07/04/2021') - new Date().getTime()) /  (1000 * 3600 * 24)
 
     return ~~daysToWedding > 0 ? ~~daysToWedding : 0;
   }
@@ -560,7 +560,7 @@ export class WeddingMain extends LitElement {
       </div>
 
       <header id="home">
-        <wedding-title title="¡Nos casamos!" subtitle="Irene & Alex" extra="24 octubre 2020, faltan ${this._getDaysToWedding()} días"></wedding-title>
+        <wedding-title title="¡Nos casamos!" subtitle="Irene & Alex" extra="4 julio 2021, faltan ${this._getDaysToWedding()} días"></wedding-title>
       </header>
       
       <div class="content">
