@@ -112,7 +112,7 @@ export class WeddingFormGuest extends LitElement {
         <wedding-input-text labelText="¿Cuántos adultos sois?" inputType="number" inputName="adults" inputValue="${this.adults}" @change="${this.adultsChange}" autoSelect></wedding-input-text>
         <wedding-input-text labelText="¿Viene algún niño?" inputType="number" inputName="junior" inputValue="${this.junior}" @change="${this.juniorChange}" autoSelect></wedding-input-text>
         <wedding-input-text labelText="¿Alergias o algo que debamos saber?" inputName="allergy" inputValue="${this.allergy}" @change="${this.allergyChange}"></wedding-input-text>
-        <wedding-input-checkbox labelText="Marca si crees que necesitarás autobús" inputName="${this.bus}" inputValue="${this.bus}" @change="${this.busChange}"></wedding-input-checkbox>
+        <wedding-input-checkbox hidden labelText="Marca si crees que necesitarás autobús" inputName="${this.bus}" inputValue="${this.bus}" @change="${this.busChange}"></wedding-input-checkbox>
   
         <wedding-button text="Confirmar" ?isDisabled="${this.buttonIsDisabled}" @clicked="${this.handleClick}"></weedding-button>
       </div>

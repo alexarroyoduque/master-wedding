@@ -38,7 +38,7 @@ export class WeddingMain extends LitElement {
       {
         title: '¿Dónde?',
         image: './src/images/radar-fs8.png',
-        description: 'En la Quinta de Illescas'
+        description: 'En la Quinta de Illescas, espacio Las Lunas'
       },
       {
         title: '¿Hora?',
@@ -94,8 +94,13 @@ export class WeddingMain extends LitElement {
         isHidden: true,
         content: [
           {
+            isLink: true,
+            text: 'La Quinta de Illescas',
+            href: 'https://www.laquintadeillescas.com'
+          },
+          {
             isLink: false,
-            text: 'La Quinta de Illescas'
+            text: 'Espacio Las Lunas'
           },
           {
             isLink: false,
@@ -119,10 +124,6 @@ export class WeddingMain extends LitElement {
           {
             isLink: false,
             text: 'Desde la estación de Illescas + Taxi: 925 51 55 15'
-          },
-          {
-            isLink: false,
-            text: 'El autobús de boda todavía no está confirmado, dependerá del número de invitados que lo necesiten desde Madrid.'
           },
           {
             isLink: false,
