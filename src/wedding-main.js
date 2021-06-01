@@ -43,7 +43,7 @@ export class WeddingMain extends LitElement {
       {
         title: '¿Hora?',
         image: './src/images/fullmetal-fs8.png',
-        description: `13:00`
+        description: `12:45`
       }
     ];
     this.storySections = [
