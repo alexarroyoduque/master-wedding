@@ -20,6 +20,7 @@ export class WeddingMain extends LitElement {
       knowMoreSections: {type: Array},
       storySections: {type: Array},
       isMenuVisible: {type: Boolean},
+      isMapVisible: {type: Boolean},
       buttonCloseClass: {type: String}
     };
   }
@@ -33,6 +34,7 @@ export class WeddingMain extends LitElement {
   constructor() {
     super();
     this.isMenuVisible = false;
+    this.isMapVisible = false;
     this.buttonCloseClass = '';
     this.infoItems = [
       {
@@ -417,6 +419,12 @@ export class WeddingMain extends LitElement {
         z-index: 9;
       }
 
+      .map img {
+        width: 100%;
+        max-width: 25rem;
+        margin-bottom: 1rem;
+      }
+
       h2 {
         margin: 0 0 1rem 0;
         font-size: 1.6rem;
@@ -528,6 +536,10 @@ export class WeddingMain extends LitElement {
     `;
   }
 
+  handleMap() {
+    this.isMapVisible = !this.isMapVisible;
+  }
+
   openMenu() {
     this.isMenuVisible = !this.isMenuVisible;
     this.buttonCloseClass = this.isMenuVisible ? 'close' : '';
@@ -552,7 +564,8 @@ export class WeddingMain extends LitElement {
         </button>
         <div class="menu-opened" ?hidden="${!this.isMenuVisible}">
           <a href="#home" @click="${()=>this.goTo('home')}">Bienvenida</a>
-          <a href="#guest-content" @click="${()=>this.goTo('guest-content')}">¿Te vienes?</a>
+          <!-- <a href="#guest-content" @click="${()=>this.goTo('guest-content')}">¿Te vienes?</a> -->
+          <a href="#map-content" @click="${()=>this.goTo('map-content')}">En coche desde Madrid</a>
           <a href="#knowmore" @click="${()=>this.goTo('knowmore')}">¿Necesitas saber más?</a>
           <a href="#book-content" @click="${()=>this.goTo('book-content')}">¿Nos dejas un mensaje?</a>
           <a href="#secret" @click="${()=>this.goTo('secret')}">¿Quieres hacernos un regalo?</a>
@@ -573,13 +586,32 @@ export class WeddingMain extends LitElement {
           ${this.infoItems.map(item => html`<li><wedding-info-item title=${item.title} image=${item.image} description=${item.description}></amiibo-item></li>`)}
         </ul>
         
-        <section class="info" id="guest-content">
+        <!-- <section class="info" id="guest-content">
           <h2>¿Te vienes?</h2>
           <wedding-form-guest id="guest" @submit="${this.handleNewGuest}"></wedding-form-guest>
-        </section>
+        </section> -->
         <section class="info" id="knowmore">
           <h2>¿Necesitas saber más?</h2>
           <wedding-sections sections="${JSON.stringify(this.knowMoreSections)}" showText="mostrar" hideText="ocultar"></wedding-sections>
+        </section>
+        <section class="map info" id="map-content">
+          <h2>En coche desde Madrid</h2>
+          <div ?hidden="${!this.isMapVisible}">
+            <p>Google maps te envía por la puerta trasera pero si queréis entrar por la principal hay que ir por otro lado.</p>
+            <img src="./src/images/mapa.JPG">
+            <p>Coger la salida 30-A</p>
+            <img src="./src/images/salida-30A.jpeg">
+            <img src="./src/images/giro1.jpeg">
+            <img src="./src/images/giro2.jpeg">
+            <p>Ir por el camino de tierra</p>
+            <img src="./src/images/giro3.jpeg">
+            <p>Entrada principal</p>
+            <img src="./src/images/entrada-principal.jpeg">
+            <p>Si vas por el otro camino llegaras a la entrada trasera</p>
+            <img src="./src/images/entrada-trasera.jpeg">
+          </div>
+          <wedding-button ?hidden="${!this.isMapVisible}" id="map-button" @clickedmap-button="${this.handleMap}" text="OCULTAR INDICACIONES"></wedding-button>
+          <wedding-button ?hidden="${this.isMapVisible}" id="map-button" @clickedmap-button="${this.handleMap}" text="MOSTRAR INDICACIONES"></wedding-button>
         </section>
         <section class="info" id="book-content">
           <h2>¿Nos dejas un mensaje?</h2>
