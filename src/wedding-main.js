@@ -26,9 +26,51 @@ export class WeddingMain extends LitElement {
   }
 
   _getDaysToWedding() {
-    var daysToWedding = (new Date('07/04/2021') - new Date().getTime()) /  (1000 * 3600 * 24)
+    let finalDate = new Date('07/04/2021');
+    finalDate.setHours(12, 45, 0)
+    let now = new Date();
+    let nowMillis = now.getTime();
+    let diff = finalDate - nowMillis;
+    let diffDate = new Date(diff);
 
-    return ~~daysToWedding > 0 ? ~~daysToWedding : 0;
+    let days = diffDate.getDate() - 1;
+    let hours = diffDate.getHours() - 1;
+    let minutes = diffDate.getMinutes();
+    let message = ', faltan ';
+    let isToday = false;
+    let isTheHour = false;
+
+    if (finalDate.getDate() === now.getDate() &&
+        finalDate.getMonth() === now.getMonth() &&
+        finalDate.getFullYear() === now.getFullYear())
+        {
+          isToday = true;
+    }
+
+    if (isToday &&
+        finalDate.getHours() &&
+        now.getHours())
+        {
+          isTheHour = true;
+    }
+
+    if (!isToday && days > 0) {
+      message += `${days} días y `;
+    }
+
+    if (!isTheHour && hours > 0) {
+      message += `${hours} horas`;
+    }
+
+    if (isToday && minutes > 0) {
+      message += ` ${minutes} minutos`;
+    }
+
+    if (diff <= 0) {
+      message = '';
+    }
+
+    return message;
   }
 
   constructor() {
@@ -574,7 +616,7 @@ export class WeddingMain extends LitElement {
       </div>
 
       <header id="home">
-        <wedding-title title="¡Nos casamos!" subtitle="Irene & Alex" extra="4 julio 2021, faltan ${this._getDaysToWedding()} días"></wedding-title>
+        <wedding-title title="¡Nos casamos!" subtitle="Irene & Alex" extra="4 julio 2021${this._getDaysToWedding()}"></wedding-title>
       </header>
       
       <div class="content">
