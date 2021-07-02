@@ -48,14 +48,21 @@ export class WeddingMain extends LitElement {
     }
 
     if (isToday &&
-        finalDate.getHours() &&
-        now.getHours())
+        finalDate.getHours() === now.getHours()
+        )
         {
           isTheHour = true;
     }
+    console.log(isToday)
+    console.log(isTheHour)
+    console.log(isTheHour)
 
     if (!isToday && days > 0) {
-      message += `${days} días y `;
+      message += `${days} días`;
+    }
+
+    if (!isToday && days > 0 && !isTheHour && hours > 0) {
+      message += ` y `;
     }
 
     if (!isTheHour && hours > 0) {
