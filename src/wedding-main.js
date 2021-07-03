@@ -623,7 +623,7 @@ export class WeddingMain extends LitElement {
       </div>
 
       <header id="home">
-        <wedding-title title="¡Nos casamos!" subtitle="Irene & Alex" extra="4 julio 2021${this._getDaysToWedding()}"></wedding-title>
+        <wedding-title title="¡Nos casamos!" subtitle="Irene & Alex" extra="4 julio 2021"></wedding-title>
       </header>
       
       <div class="content">
